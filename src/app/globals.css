@@ -1,0 +1,303 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800;900&display=swap');
+@import "tailwindcss";
+
+:root {
+  --color-bg: #0e0e0e;
+  --color-road: #1a1a1a;
+  --color-track-bg: #c8c8c8;
+  --color-trail: #45db7d;
+  --color-text: #ffffff;
+  --color-accent-yellow: #d4f83f;
+  --color-accent-dark: #2a2a2a;
+  --color-accent-blue: #6ec6f5;
+  --color-accent-orange: #f47c2e;
+  --font-display: 'Outfit', sans-serif;
+  --font-body: 'Inter', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: auto;
+}
+
+body {
+  font-family: var(--font-body);
+  overflow-x: hidden;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ===== HERO SECTION ===== */
+.hero-wrapper {
+  position: relative;
+  background: var(--color-bg);
+}
+
+.hero-section {
+  height: 300vh;
+  position: relative;
+}
+
+.hero-sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* ===== INTRO OVERLAY ===== */
+.intro-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-bg);
+  pointer-events: none;
+}
+
+.intro-headline {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 5vw, 4rem);
+  font-weight: 900;
+  letter-spacing: 1.2em;
+  text-transform: uppercase;
+  color: var(--color-text);
+  text-align: center;
+  opacity: 0;
+  padding-right: 1.2em;
+}
+
+.intro-subtext {
+  font-family: var(--font-body);
+  font-size: clamp(0.9rem, 1.5vw, 1.2rem);
+  font-weight: 300;
+  letter-spacing: 0.5em;
+  color: rgba(255, 255, 255, 0.5);
+  margin-top: 1.5rem;
+  opacity: 0;
+  padding-right: 0.5em;
+}
+
+/* ===== TRACK AREA ===== */
+.track-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-track-bg);
+  position: relative;
+}
+
+.road {
+  width: 100vw;
+  height: 220px;
+  background-color: var(--color-road);
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+/* Road markings */
+.road::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: repeating-linear-gradient(
+    90deg,
+    rgba(255,255,255,0.08) 0px,
+    rgba(255,255,255,0.08) 30px,
+    transparent 30px,
+    transparent 60px
+  );
+}
+
+.road::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: repeating-linear-gradient(
+    90deg,
+    rgba(255,255,255,0.08) 0px,
+    rgba(255,255,255,0.08) 30px,
+    transparent 30px,
+    transparent 60px
+  );
+}
+
+/* ===== CAR ===== */
+.car-element {
+  position: absolute;
+  width: 400px;
+  height: 220px;
+  top: 50%;
+  transform: translateY(-50%);
+  left: -5%;
+  z-index: 10;
+  will-change: left;
+  filter: drop-shadow(0 10px 30px rgba(0,0,0,0.5));
+}
+
+.car-element img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transform: scale(1.4);
+}
+
+/* ===== TRAIL ===== */
+.trail {
+  height: 100%;
+  background: var(--color-trail);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 0;
+  will-change: width;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.trail-text {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 8vw, 7rem);
+  font-weight: 900;
+  color: #000;
+  white-space: nowrap;
+  padding-left: 2rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  user-select: none;
+}
+
+/* ===== STAT CARDS ===== */
+.stat-card {
+  position: absolute;
+  padding: 1.5rem 2rem;
+  border-radius: 16px;
+  opacity: 0;
+  z-index: 5;
+  backdrop-filter: blur(10px);
+  transition: box-shadow 0.4s ease;
+  min-width: 200px;
+}
+
+.stat-card:hover {
+  box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+}
+
+.stat-card--yellow {
+  background: var(--color-accent-yellow);
+  color: #1a1a1a;
+}
+
+.stat-card--dark {
+  background: var(--color-accent-dark);
+  color: #fff;
+}
+
+.stat-card--blue {
+  background: var(--color-accent-blue);
+  color: #1a1a1a;
+}
+
+.stat-card--orange {
+  background: var(--color-accent-orange);
+  color: #1a1a1a;
+}
+
+.stat-value {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 900;
+  line-height: 1;
+}
+
+.stat-label {
+  font-size: clamp(0.75rem, 1.2vw, 0.95rem);
+  font-weight: 500;
+  margin-top: 0.4rem;
+  opacity: 0.85;
+}
+
+/* ===== STAT POSITIONS ===== */
+.stat-pos-1 {
+  bottom: 12%;
+  left: 30%;
+}
+
+.stat-pos-2 {
+  top: 12%;
+  left: 45%;
+}
+
+.stat-pos-3 {
+  bottom: 12%;
+  left: 60%;
+}
+
+.stat-pos-4 {
+  top: 12%;
+  left: 75%;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .road {
+    height: 150px;
+  }
+
+  .car-element {
+    height: 140px;
+  }
+
+  .stat-card {
+    padding: 1rem 1.25rem;
+    min-width: 150px;
+  }
+
+  .stat-pos-1 {
+    bottom: 8%;
+    left: 10%;
+  }
+
+  .stat-pos-2 {
+    top: 8%;
+    left: 30%;
+  }
+
+  .stat-pos-3 {
+    bottom: 8%;
+    left: 50%;
+  }
+
+  .stat-pos-4 {
+    top: 8%;
+    left: 70%;
+  }
+
+  .intro-headline {
+    letter-spacing: 0.5em;
+    padding-right: 0.5em;
+  }
+}
