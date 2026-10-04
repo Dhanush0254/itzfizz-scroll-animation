@@ -193,7 +193,7 @@ export default function HeroSection() {
               {/* Car */}
               <div ref={carRef} className="car-element">
                 <img
-                  src="/car.png"
+                  src="/itzfizz-scroll-animation/car.png"
                   alt="Orange sports car top view"
                   draggable={false}
                 />
