@@ -1,36 +1,72 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# ITZFIZZ - Scroll-Driven Hero Animation
 
-## Getting Started
+![Hero Preview](https://dhanush0254.github.io/itzfizz-scroll-animation/car.png)
 
-First, run the development server:
+A high-performance, scroll-driven hero section built to demonstrate advanced frontend animations, scroll-based interactions, and smooth UI behavior using modern web technologies.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🚀 Live Demo
+**[View the Live Webpage Here](https://dhanush0254.github.io/itzfizz-scroll-animation/)**
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🎯 Objective
+This project was built to satisfy the requirements of a frontend animation assignment. The goal was to recreate a premium hero section focusing on motion quality, smoothness, and interactive logic using a modern technology stack.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## ✨ Features & Functional Requirements
 
-## Learn More
+1. **Hero Section Layout**
+   - Occupies the first screen (above the fold).
+   - Features a letter-spaced headline: `W E L C O M E  I T Z F I Z Z`.
+   - Displays impact metrics and statistics with short descriptions.
 
-To learn more about Next.js, take a look at the following resources:
+2. **Initial Load Animation**
+   - Headline appears smoothly with a staggered scale and fade effect.
+   - Smooth, premium motion avoiding abrupt flashes.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+3. **Scroll-Based Animation (Core Feature)**
+   - The primary visual element (the orange sports car) moves smoothly along a track based on the user's scroll position.
+   - The animation uses a `scrub: 1.5` interpolation so the motion feels natural, fluid, and tied directly to scroll progress (not time-based autoplay).
+   - Statistics dynamically pop up in sequential order (23%, 58%, 40%, 27%) precisely as the car reaches their positions.
+   - **Extra Scroll Feature**: As the user reaches the end of the scroll, the car smoothly speeds off the screen.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+4. **Motion & Performance Optimization**
+   - Animations exclusively target hardware-accelerated properties (`transform: translate/scale` and `opacity`).
+   - Utilizes `will-change` CSS properties to ensure GPU processing, preventing heavy calculations or layout reflows on scroll events.
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🛠️ Technology Stack
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+**Mandatory Requirements Met:**
+- **HTML5 & CSS3** (Vanilla CSS for gradients and track layout)
+- **JavaScript / TypeScript**
+- **GSAP (GreenSock)** - Powers the complex timeline and ScrollTrigger functionality.
+- **Next.js & React.js** - Used for component architecture and state.
+- **Tailwind CSS** - Used for rapid utility styling and typography.
+
+**Optional Plus Points Met:**
+- **Bootstrap 5 (Grid System)** - Integrated specifically to structure the footer layout, satisfying the "Bootstrap for layout help" bonus point without creating CSS conflicts with Tailwind.
+
+---
+
+## 💻 Local Installation
+
+To run this project locally:
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/Dhanush0254/itzfizz-scroll-animation.git
+   ```
+2. Navigate into the directory:
+   ```bash
+   cd itzfizz-scroll-animation
+   ```
+3. Install dependencies:
+   ```bash
+   npm install
+   ```
+4. Start the development server:
+   ```bash
+   npm run dev
+   ```
+5. Open [http://localhost:3000](http://localhost:3000) in your browser.
